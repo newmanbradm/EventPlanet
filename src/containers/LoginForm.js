@@ -28,6 +28,9 @@ class LoginForm extends Component {
                 <br />
                 <label htmlFor="password">Password: </label>
                 <input type="password" name="password" id="password" value={this.state.password} onChange={this.onChange} />
+                <br />
+                <br />
+                <input type="submit" value="Login"/>
             </form>
         );
     }

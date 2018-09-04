@@ -1,23 +1,19 @@
-const user = (state = [], action) => {
+const user = (state = {}, action) => {
     switch (action.type) {
         case 'LOGIN':
-            return [
+            return {
                 ...state,
-                {
-                    id: action.id,
-                    name: action.name,
-                    email: action.email
+                id: action.id,
+                name: action.name,
+                email: action.email
                 }
-            ]
         case 'LOGOUT':
-            return [
+            return {
                 ...state,
-                {
-                    id: null,
-                    name: null, 
-                    email: null
+                id: null,
+                name: null, 
+                email: null
                 }
-            ]
         default:
             return state
     }
