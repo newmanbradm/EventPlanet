@@ -19,9 +19,9 @@ class App extends Component {
           <img src="planet.png" className="App-logo" alt="logo" />
           <h1 className="App-title">EventPlanet</h1>
         </header>
-        <Navbar />
         <EventList />
-        <Switch>
+        <Navbar />
+        <Switch className='content'>
           <Route exact path='/' component={LoginForm} />
           <Route path='/details' component={DetailsContainer} />
           <Route path='/venues' component={VenueContainer} />

@@ -2,7 +2,7 @@ import React from 'react';
 
 const PostList = () => {
     return (
-        <div>
+        <div className = "content">
             I am the PostList.
         </div>
     );

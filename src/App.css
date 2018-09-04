@@ -26,3 +26,24 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.event-list {
+  height: 100%;
+  width: 20%;
+  background: #f5f7f9;
+  overflow: scroll;
+  float: left;
+  position: absolute;
+}
+
+.navbar {
+  float: right;
+  width: 80%;
+  background: #f5f7f9;
+}
+
+.content {
+  float: right;
+  right: 0px;
+  width: 80%;
+}

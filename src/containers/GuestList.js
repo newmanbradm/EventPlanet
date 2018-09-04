@@ -2,7 +2,7 @@ import React from 'react';
 
 const GuestList = () => {
     return (
-        <div>
+        <div className = "content">
             I am the GuestList.
         </div>
     );

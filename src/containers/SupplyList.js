@@ -2,7 +2,7 @@ import React from 'react';
 
 const SupplyList = () => {
     return (
-        <div>
+        <div className="content">
             I am the SupplyList.
         </div>
     );

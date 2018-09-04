@@ -2,7 +2,7 @@ import React from 'react';
 
 const DetailsContainer = () => {
     return (
-        <div>
+        <div className="content">
             I am the Details Container
         </div>
     );

@@ -2,7 +2,7 @@ import React from 'react';
 
 const VenueContainer = () => {
     return (
-        <div>
+        <div className="content">
             I am the Venue Container.
         </div>
     );
