@@ -1,7 +1,9 @@
 import { combineReducers } from "redux";
-import user from './user'
+import events from './eventsReducer'
 
 
-export default combineReducers({
-    user
+const rootReducer = combineReducers({
+    events,
 })
+
+export default rootReducer

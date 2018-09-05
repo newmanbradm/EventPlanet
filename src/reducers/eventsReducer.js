@@ -1,4 +1,4 @@
-const user = (state = {}, action) => {
+const events = (state = {}, action) => {
     switch (action.type) {
         case 'LOGIN':
             return {
@@ -19,4 +19,4 @@ const user = (state = {}, action) => {
     }
 }
 
-export default user
+export default events

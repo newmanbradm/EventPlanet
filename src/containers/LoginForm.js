@@ -16,7 +16,7 @@ class LoginForm extends Component {
 
     render() {
         return (
-            <form>
+            <form className="login-form">
                 <br />
                 <label htmlFor="name">Name: </label>
                 <input type="text" name="name" id="name" value={this.state.name} onChange={this.onChange} />
