@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
-import { Switch, Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import EventList from '../containers/EventList';
 import Navbar from '../containers/Navbar'
 import LoginForm from '../containers/LoginForm';
@@ -11,6 +11,7 @@ import SupplyList from '../containers/SupplyList';
 import PostList from '../containers/PostList';
 
 class App extends Component {
+
   render() {
     return (
       <div className="App">

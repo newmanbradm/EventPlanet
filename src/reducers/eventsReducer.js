@@ -1,19 +1,10 @@
-const events = (state = {}, action) => {
+const events = (state = { events: [] }, action) => {
     switch (action.type) {
-        case 'LOGIN':
+        case 'SET_EVENTS':
             return {
                 ...state,
-                id: action.id,
-                name: action.name,
-                email: action.email
-                }
-        case 'LOGOUT':
-            return {
-                ...state,
-                id: null,
-                name: null, 
-                email: null
-                }
+                events: action.payload
+            }
         default:
             return state
     }
