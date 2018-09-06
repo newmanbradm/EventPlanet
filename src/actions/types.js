@@ -1,2 +1,2 @@
 export const SET_EVENTS = 'SET_EVENTS'
-export const ADD_EVENT = 'ADD_EVENT'
+export const SET_CURRENT_EVENT = 'SET_CURRENT_EVENT'

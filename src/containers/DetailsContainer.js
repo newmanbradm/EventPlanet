@@ -1,11 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import EventDetails from '../components/EventDetails';
 
-const DetailsContainer = () => {
+const DetailsContainer = (props) => {
     return (
         <div className="content">
-            I am the Details Container
+            <EventDetails event={props.currentEvent}/>
         </div>
     );
 }
 
-export default DetailsContainer;
+function mapStateToProps(state) {
+    return {
+        currentEvent: state.currentEvent.currentEvent
+    }
+}
+
+export default connect(mapStateToProps)(DetailsContainer);

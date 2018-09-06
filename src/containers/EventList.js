@@ -6,11 +6,11 @@ import EventTab from '../components/EventTab';
 class EventList extends Component {
 
     componentDidMount() {
-        fetch('http://localhost:3000/api/v1/events').then(resp => resp.json()).then(data => this.props.dispatch(setEventsAction(data)))
+        fetch('http://localhost:3000/api/v1/events').then(resp => resp.json()).then(data => this.props.setEvents(data))
     }
 
     renderEventTabs = () => {
-        return this.props.events.map(event => <EventTab key={event.id} {...event} />)
+        return this.props.allEvents.map(event => <EventTab key={event.id} event={event} />)
     }
 
     render() {
@@ -29,8 +29,14 @@ class EventList extends Component {
 
 function mapStateToProps(state) {
     return {
-        events: state.events.events
+        allEvents: state.events.allEvents
     }
 }
 
-export default connect(mapStateToProps)(EventList);
+function mapDispatchToProps(dispatch) {
+    return {
+        setEvents: (data) => dispatch(setEventsAction(data))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EventList);
