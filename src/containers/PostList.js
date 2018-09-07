@@ -17,7 +17,9 @@ class PostList extends Component {
             this.props.currentEvent.id ?
             <div className="content">
                 <h1>{`Inspiration for ${this.props.currentEvent.title}`}</h1>
-                {this.renderPosts()}
+                <div className="post-board">
+                    {this.renderPosts()}
+                </div>
             </div>
             :
             <div className="content">

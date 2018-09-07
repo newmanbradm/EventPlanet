@@ -21,10 +21,15 @@ class Post extends Component {
     render() {
         console.log(this.props)
         return (
-            <div className='post'>
-                <img src={this.props.post.image_url} alt="post"/>
-                {this.renderComments()}
+            <React.Fragment>
+            <div className='post-area'>
+                <div className="post">
+                    <img src={this.props.post.image_url} alt="post"/>
+                    {this.renderComments()}
+                </div>
             </div>
+            <br />
+            </React.Fragment>
         );
     }
 }
