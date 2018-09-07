@@ -16,6 +16,7 @@ class VenueContainer extends Component {
         return (
             this.props.currentEvent.id ?
             <div className="content">
+                <h1>{`Venue(s) for ${this.props.currentEvent.title}`}</h1>
                 {this.renderVenueDetails()}
             </div>
             :
