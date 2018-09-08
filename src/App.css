@@ -28,7 +28,7 @@
 }
 
 .event-list {
-  height: 75%;
+  height: 100%;
   width: 20%;
   background: #f5f7f9;
   overflow: scroll;
@@ -54,6 +54,12 @@
 }
 
 .login-form {
+  float: right;
+  right: 0px;
+  width: 100%;
+}
+
+.add-event-form {
   float: right;
   right: 0px;
   width: 100%;

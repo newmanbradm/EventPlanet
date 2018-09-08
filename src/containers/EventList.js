@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setEventsAction } from '../actions';
 import EventTab from '../components/EventTab';
+import { withRouter } from 'react-router-dom'
 
 class EventList extends Component {
 
@@ -13,10 +14,14 @@ class EventList extends Component {
         return this.props.allEvents.map(event => <EventTab key={event.id} event={event} />)
     }
 
+    onClick = () => {
+        this.props.history.push('/add-event')
+    }
+
     render() {
         return (
             <div className="event-list">
-                <div className="create-event">
+                <div className="create-event" onClick={() => this.onClick()}>
                     <h4>Add Event +</h4>
                     <hr />
                     <hr />
@@ -39,4 +44,4 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(EventList);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EventList));

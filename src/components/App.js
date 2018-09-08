@@ -3,14 +3,22 @@ import '../App.css';
 import { Route, Switch } from 'react-router-dom';
 import EventList from '../containers/EventList';
 import Navbar from '../containers/Navbar'
-import LoginForm from '../containers/LoginForm';
+import LoginForm from '../containers/forms/LoginForm';
 import DetailsContainer from '../containers/DetailsContainer';
 import VenueContainer from '../containers/VenueContainer';
 import GuestList from '../containers/GuestList';
 import SupplyList from '../containers/SupplyList';
 import PostList from '../containers/PostList';
+import AddEventForm from '../containers/forms/AddEventForm';
+import { setUsersAction } from '../actions';
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
 class App extends Component {
+
+  componentDidMount() {
+    fetch('http://localhost:3000/api/v1/users').then(resp => resp.json()).then(data => this.props.setUsers(data))
+  }
 
   render() {
     return (
@@ -29,10 +37,24 @@ class App extends Component {
           <Route path='/guests' component={GuestList} />
           <Route path='/supplies' component={SupplyList} />
           <Route path='/inspiration' component={PostList} />
+          <Route exact path='/add-event' component={AddEventForm} />
         </Switch>
       </div>
     );
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    allUsers: state.users.allUsers,
+    user: state.users.user
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    setUsers: (data) => dispatch(setUsersAction(data))
+  }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
