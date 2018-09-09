@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { setEventsAction, setCurrentEventAction } from '../../actions';
-import { withRouter } from 'react-router-dom'
 
-const postUrl = "http://localhost:3000/api/v1/events"
+const eventsUrl = "http://localhost:3000/api/v1/events"
 
-class AddEventForm extends Component {
-
+class EditEventForm extends Component {
+    
     state = {
-        title: '',
-        date: '',
-        rainDate: '',
-        description: '',
-        contactDetails: '',
-        budget: 0
+        title: this.props.currentEvent.title,
+        date: this.props.currentEvent.date,
+        rainDate: this.props.currentEvent.rain_date,
+        description: this.props.currentEvent.description,
+        contactDetails: this.props.currentEvent.contact_details,
+        budget: this.props.currentEvent.budget
     }
 
     handleChange = event => {
@@ -24,23 +23,23 @@ class AddEventForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        let postBody = {
+        let editUrl = `http://localhost:3000/api/v1/events/${this.props.currentEvent.id}`
+        let editBody = {
             title: this.state.title,
             date: this.state.date, 
             rain_date: this.state.rainDate,
             description: this.state.description,
             contact_details: this.state.contactDetails,
-            budget: this.state.budget,
-            user_id: this.props.user.id
+            budget: this.state.budget
         }
-        let postConfig = {
-            method: "POST",
-            body: JSON.stringify(postBody),
+        let editConfig = {
+            method: "PATCH",
+            body: JSON.stringify(editBody),
             headers: {
                 "Content-Type": "application/json"
             }
         }
-        return fetch(postUrl, postConfig).then(resp => resp.json()).then((data) => this.props.setCurrentEvent(data)).then(() => fetch(postUrl).then(resp => resp.json()).then(data => this.props.setEvents(data)).then(this.props.history.push("/details"))) 
+        return fetch(editUrl, editConfig).then(resp => resp.json()).then(data => this.props.setCurrentEvent(data)).then(() => fetch(eventsUrl).then(resp => resp.json()).then(data => this.props.setEvents(data)).then(this.props.history.push("/details"))) 
     }
 
     render() {
@@ -48,7 +47,7 @@ class AddEventForm extends Component {
             <div className="content">
                 <form className="add-event-form" onSubmit={this.handleSubmit}>
                     <br />
-                    <h1>Add An Event</h1>
+                    <h1>Edit {this.props.currentEvent.title}</h1>
                     <label htmlFor="title">Event Title: </label>
                     <br />
                     <br />
@@ -85,7 +84,7 @@ class AddEventForm extends Component {
                     <input type="number" name="budget" id="budget" value={this.state.budget} onChange={this.handleChange} />
                     <br />
                     <br />
-                    <input type="submit" value="Add Event"/>
+                    <input type="submit" value="Edit Event"/>
                 </form>
             </div>
         );
@@ -94,7 +93,7 @@ class AddEventForm extends Component {
 
 function mapStateToProps(state) {
     return {
-        user: state.users.user
+        currentEvent: state.currentEvent.currentEvent
     }
 }
 
@@ -105,4 +104,5 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AddEventForm));
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditEventForm);

@@ -14,6 +14,14 @@ const EventDetails = (props) => {
             {props.event.description}
             <h3>Contact</h3>
             {props.event.contact_details}
+            <br />
+            <br />
+            <br />
+            <div className="edit-and-remove-buttons">
+                <button onClick={props.editEvent}>Edit Details</button>
+                &nbsp;
+                <button onClick={props.deleteEvent}>Delete Event</button>
+            </div>
         </div>
         :
         <div>

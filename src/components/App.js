@@ -13,6 +13,7 @@ import AddEventForm from '../containers/forms/AddEventForm';
 import { setUsersAction } from '../actions';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import EditEventForm from '../containers/forms/EditEventForm';
 
 class App extends Component {
 
@@ -27,6 +28,7 @@ class App extends Component {
           <br />
           <img src="planet.png" className="App-logo" alt="logo" />
           <h1 className="App-title">EventPlanet</h1>
+          <h4>Just Plan It!</h4>
         </header>
         <EventList />
         <Navbar />
@@ -38,6 +40,7 @@ class App extends Component {
           <Route path='/supplies' component={SupplyList} />
           <Route path='/inspiration' component={PostList} />
           <Route exact path='/add-event' component={AddEventForm} />
+          <Route exact path='/edit-event' component={EditEventForm} />
         </Switch>
       </div>
     );

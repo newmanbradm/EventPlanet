@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setEventsAction, setCurrentEventAction } from '../actions';
 import EventTab from '../components/EventTab';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 
 class EventList extends Component {
 
@@ -14,7 +14,7 @@ class EventList extends Component {
         return this.props.allEvents.map(event => <EventTab key={event.id} event={event} />)
     }
 
-    onClick = () => {
+    handleClick = () => {
         this.props.history.push('/add-event')
         this.props.setCurrentEvent({})
     }
@@ -22,7 +22,7 @@ class EventList extends Component {
     render() {
         return (
             <div className="event-list">
-                <div className="create-event" onClick={() => this.onClick()}>
+                <div className="create-event" onClick={this.handleClick}>
                     <h4>Add Event +</h4>
                     <hr />
                     <hr />
