@@ -34,6 +34,8 @@
   overflow: scroll;
   float: left;
   position: absolute;
+  display: flex;
+  flex-direction: column;
 }
 
 .navbar {
@@ -113,3 +115,14 @@
   justify-content: center;
   align-items: center;
 }
+
+.event-tab {
+  border-bottom: 1px solid;
+}
+
+.selected-event-tab {
+  background-color: #dfc183;
+  border-bottom: 1px solid;
+}
+
+

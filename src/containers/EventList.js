@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setEventsAction } from '../actions';
+import { setEventsAction, setCurrentEventAction } from '../actions';
 import EventTab from '../components/EventTab';
 import { withRouter } from 'react-router-dom'
 
@@ -16,6 +16,7 @@ class EventList extends Component {
 
     onClick = () => {
         this.props.history.push('/add-event')
+        this.props.setCurrentEvent({})
     }
 
     render() {
@@ -40,7 +41,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        setEvents: (data) => dispatch(setEventsAction(data))
+        setEvents: (data) => dispatch(setEventsAction(data)),
+        setCurrentEvent: (obj) => dispatch(setCurrentEventAction(obj))
     }
 }
 

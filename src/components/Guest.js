@@ -2,8 +2,6 @@ import React from 'react';
 
 const Guest = (props) => {
 
-    console.log(props)
-
     return (
         <div className='guest'>
             <p>{props.guest.name}</p>

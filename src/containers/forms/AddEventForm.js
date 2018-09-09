@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { setEventsAction } from '../../actions';
+
+const postUrl = "http://localhost:3000/api/v1/events"
 
 class AddEventForm extends Component {
 
@@ -12,52 +15,73 @@ class AddEventForm extends Component {
         budget: 0
     }
 
-    onChange = event => {
+    handleChange = event => {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
 
+    handleSubmit = event => {
+        event.preventDefault()
+        let postBody = {
+            title: this.state.title,
+            date: this.state.date, 
+            rain_date: this.state.rainDate,
+            description: this.state.description,
+            contact_details: this.state.contactDetails,
+            budget: this.state.budget,
+            user_id: this.props.user.id
+        }
+        let postConfig = {
+            method: "POST",
+            body: JSON.stringify(postBody),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }
+        return fetch(postUrl, postConfig).then(resp => resp.json()).then(() => fetch(postUrl).then(resp => resp.json()).then(data => this.props.setEvents(data)).then(this.props.history.push("/details"))) 
+    }
+
     render() {
         return (
             <div className="content">
-                <form className="add-event-form">
+                <form className="add-event-form" onSubmit={this.handleSubmit}>
                     <br />
                     <h1>Add An Event</h1>
                     <label htmlFor="title">Event Title: </label>
                     <br />
                     <br />
-                    <input type="text" name="title" id="title" value={this.state.title} onChange={this.onChange} />
+                    <input type="text" name="title" id="title" value={this.state.title} onChange={this.handleChange} />
                     <br />
                     <br />
                     <label htmlFor="date">Event Date: </label>
                     <br />
                     <br />
-                    <input type="text" name="date" id="date" value={this.state.date} onChange={this.onChange} />
+                    <input type="text" name="date" id="date" value={this.state.date} onChange={this.handleChange} />
                     <br />
                     <br />
                     <label htmlFor="rainDate">Rain Date: </label>
                     <br />
                     <br />
-                    <input type="text" name="rainDate" id="rainDate" value={this.state.rainDate} onChange={this.onChange} />
+                    <input type="text" name="rainDate" id="rainDate" value={this.state.rainDate} onChange={this.handleChange} />
                     <br />
                     <br />
                     <label htmlFor="description">Event Description: </label>
                     <br />
                     <br />
-                    <textarea type="text" name="description" id="description" value={this.state.description} onChange={this.onChange}></textarea>
+                    <textarea type="text" name="description" id="description" value={this.state.description} onChange={this.handleChange}></textarea>
                     <br />
                     <br />
                     <label htmlFor="contactDetails">Contact Details: </label>
                     <br />
                     <br />
-                    <textarea type="text" name="contactDetails" id="contactDetails" value={this.state.contactDetails} onChange={this.onChange}></textarea>
+                    <textarea type="text" name="contactDetails" id="contactDetails" value={this.state.contactDetails} onChange={this.handleChange}></textarea>
                     <br />
                     <br />
                     <label htmlFor="budget">Event Budget: </label>
                     <br />
                     <br />
-                    <input type="number" name="budget" id="budget" value={this.state.budget} onChange={this.onChange} />
+                    <input type="number" name="budget" id="budget" value={this.state.budget} onChange={this.handleChange} />
                     <br />
                     <br />
                     <input type="submit" value="Add Event"/>
@@ -73,4 +97,10 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(AddEventForm);
+function mapDispatchToProps(dispatch) {
+    return {
+        setEvents: (data) => dispatch(setEventsAction(data))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddEventForm);

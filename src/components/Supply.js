@@ -2,8 +2,6 @@ import React from 'react';
 
 const Supply = (props) => {
 
-    console.log(props)
-
     return (
         <div className='supply'>
             <p>{props.supply.name}</p>

@@ -19,7 +19,6 @@ class Post extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <React.Fragment>
             <div className='post-area'>
