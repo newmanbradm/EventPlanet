@@ -25,6 +25,8 @@ class SupplyList extends Component {
             this.props.currentEvent.id ?
             <div className="content">
                 <h1>{`Supplies for ${this.props.currentEvent.title}`}</h1>
+                <button>Add Supply</button>
+                <br />
                 {this.renderSupplies()}
                 <div className="budget">
                     <h4>Event Budget: {`$${this.props.currentEvent.budget}`}</h4>

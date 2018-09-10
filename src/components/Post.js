@@ -11,11 +11,6 @@ class Post extends Component {
         } else {
             return <h3>This post does not have any comments at this time.</h3>
         }
-        // if (this.props.post.comments.length !== 0) {
-        //     return this.props.post.comments.map(comment => <Comment key={comment.id} comment={comment} />)
-        // } else {
-        //     return <h4>This post does not have any comments at this time.</h4>
-        // }
     }
 
     render() {
@@ -25,6 +20,7 @@ class Post extends Component {
                 <div className="post">
                     <img src={this.props.post.image_url} alt="post"/>
                     {this.renderComments()}
+                    <button>Remove Post</button>
                 </div>
             </div>
             <br />

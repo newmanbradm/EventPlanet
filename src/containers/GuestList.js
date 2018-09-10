@@ -17,6 +17,8 @@ class GuestList extends Component {
             this.props.currentEvent.id ?
             <div className="content">
                 <h1>{`Guests for ${this.props.currentEvent.title}`}</h1>
+                <button>Add Guest</button>
+                <br />
                 {this.renderGuests()}
             </div>
             :

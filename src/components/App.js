@@ -14,6 +14,7 @@ import { setUsersAction } from '../actions';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import EditEventForm from '../containers/forms/EditEventForm';
+import AddVenueForm from '../containers/forms/AddVenueForm';
 
 class App extends Component {
 
@@ -41,6 +42,7 @@ class App extends Component {
           <Route path='/inspiration' component={PostList} />
           <Route exact path='/add-event' component={AddEventForm} />
           <Route exact path='/edit-event' component={EditEventForm} />
+          <Route exact path='/add-venue' component={AddVenueForm} />
         </Switch>
       </div>
     );
