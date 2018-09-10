@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Supply from '../components/Supply';
+import { withRouter } from 'react-router-dom';
 
 class SupplyList extends Component {
 
     renderSupplies = () => {
         if (this.props.currentEvent.supplies.length !== 0) {
-            return this.props.currentEvent.supplies.map(supply => <Supply key={supply.id} supply={supply}/>)
+            let sortedArray = this.props.currentEvent.supplies.sort((a, b) => a.id - b.id)
+            return sortedArray.map(supply => <Supply key={supply.id} supply={supply} editSupply={this.editSupply} deleteSupply={this.deleteSupply} />)
         } else {
             return <h1>This event does not have any supplies at this time.</h1>
         }
@@ -14,10 +16,22 @@ class SupplyList extends Component {
 
     findTotal = () => {
         if (this.props.currentEvent.supplies.length !== 0) {
-            return this.props.currentEvent.supplies.map(supply => supply.price).reduce((total, num) => total + num)
+            return this.props.currentEvent.supplies.map(supply => supply.price).reduce((total, num) => total + num).toFixed(2)
         } else {
             return 0
         }
+    }
+
+    handleClick = () => {
+        this.props.history.push("/add-supply")
+    }
+
+    editSupply = (supplyObj) => {
+
+    }
+
+    deleteSupply = (supplyId) => {
+
     }
     
     render() {
@@ -25,7 +39,7 @@ class SupplyList extends Component {
             this.props.currentEvent.id ?
             <div className="content">
                 <h1>{`Supplies for ${this.props.currentEvent.title}`}</h1>
-                <button>Add Supply</button>
+                <button onClick={this.handleClick}>Add Supply</button>
                 <br />
                 {this.renderSupplies()}
                 <div className="budget">
@@ -48,4 +62,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(SupplyList);
+export default withRouter(connect(mapStateToProps)(SupplyList));
