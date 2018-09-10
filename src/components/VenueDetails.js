@@ -11,9 +11,9 @@ const VenueDetails = (props) => {
             <br />
             <br />
             <div className="edit-and-remove-buttons">
-                <button onClick={props.editEvent}>Edit Venue</button>
+                <button onClick={() => props.editVenue(props.venue)}>Edit Venue</button>
                 &nbsp;
-                <button onClick={props.deleteEvent}>Remove Venue</button>
+                <button onClick={() => props.deleteVenue(props.venue.id)}>Remove Venue</button>
             </div>
         </div>
     );

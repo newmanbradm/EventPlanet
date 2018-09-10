@@ -15,6 +15,9 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import EditEventForm from '../containers/forms/EditEventForm';
 import AddVenueForm from '../containers/forms/AddVenueForm';
+import EditVenueForm from '../containers/forms/EditVenueForm';
+import AddGuestForm from '../containers/forms/AddGuestForm';
+import EditGuestForm from '../containers/forms/EditGuestForm';
 
 class App extends Component {
 
@@ -43,6 +46,9 @@ class App extends Component {
           <Route exact path='/add-event' component={AddEventForm} />
           <Route exact path='/edit-event' component={EditEventForm} />
           <Route exact path='/add-venue' component={AddVenueForm} />
+          <Route exact path='/edit-venue' component={EditVenueForm} />
+          <Route exact path='/add-guest' component={AddGuestForm} />
+          <Route exact path='/edit-guest' component={EditGuestForm} />
         </Switch>
       </div>
     );

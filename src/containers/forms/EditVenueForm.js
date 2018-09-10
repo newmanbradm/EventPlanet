@@ -6,28 +6,12 @@ import { withRouter } from 'react-router-dom'
 const eventsUrl = "http://localhost:3000/api/v1/events"
 
 
-class AddVenueForm extends Component {
+class EditVenueForm extends Component {
 
     state = {
-        name: '',
-        imageUrl: '',
-        address: ''
-    }
-
-    addEventVenue = (eventId, venueId) => {
-        let postUrl = "http://localhost:3000/api/v1/event_venues"
-        let postBody = {
-            event_id: eventId,
-            venue_id: venueId
-        }
-        let postConfig = {
-            method: "POST",
-            body: JSON.stringify(postBody),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }
-        return fetch(postUrl, postConfig).then(resp => resp.json())
+        name: this.props.currentVenue.name,
+        imageUrl: this.props.currentVenue.image_url,
+        address: this.props.currentVenue.address
     }
 
     handleChange = event => {
@@ -38,30 +22,30 @@ class AddVenueForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
+        const editUrl = `http://localhost:3000/api/v1/venues/${this.props.currentVenue.id}`
         const currentEventUrl = `http://localhost:3000/api/v1/events/${this.props.currentEvent.id}`
-        let postUrl = "http://localhost:3000/api/v1/venues"
         let postBody = {
             name: this.state.name,
             image_url: this.state.imageUrl,
             address: this.state.address
         }
-        let postConfig = {
-            method: "POST",
+        let editConfig = {
+            method: "PATCH",
             body: JSON.stringify(postBody),
             headers: {
                 "Content-Type": "application/json"
             }
         }
-        return fetch(postUrl, postConfig).then(resp => resp.json()).then(data => data.id).then(id => this.addEventVenue(this.props.currentEvent.id, id)).then(() => fetch(currentEventUrl)).then(resp => resp.json()).then(data => this.props.setCurrentEvent(data)).then(() => fetch(eventsUrl)).then(resp => resp.json()).then(data => this.props.setEvents(data)).then(this.props.history.push("/venues"))
+        return fetch(editUrl, editConfig).then(resp => resp.json()).then(() => fetch(currentEventUrl)).then(resp => resp.json()).then(data => this.props.setCurrentEvent(data)).then(() => fetch(eventsUrl)).then(resp => resp.json()).then(data => this.props.setEvents(data)).then(this.props.history.push("/venues"))
 
     }
 
     render() {
         
         return (
-            this.props.currentEvent.id ?
+            this.props.currentVenue.id ?
             <div className="content">
-                <h1>Add A Venue</h1>
+                <h1>Edit This Venue</h1>
                 <form className="add-event-form" onSubmit={this.handleSubmit}>
                     <label htmlFor="name">Name of Venue: </label>
                     <br />
@@ -81,13 +65,13 @@ class AddVenueForm extends Component {
                     <input type="text" name="address" id="address" value={this.state.address} onChange={this.handleChange} />
                     <br />
                     <br />
-                    <input type="submit" value="Add Venue"/>
+                    <input type="submit" value="Edit Venue"/>
                 </form>
             </div>
             :
             <div className="content">
-                <h1>Add A Venue</h1>
-                <h3>Please select an event to add a venue.</h3>
+                <h1>Edit A Venue</h1>
+                <h3>Please click the Venues tab to edit a venue.</h3>
             </div>
         );
     }
@@ -96,7 +80,8 @@ class AddVenueForm extends Component {
 function mapStateToProps(state) {
     return {
         allEvents: state.events.allEvents,
-        currentEvent: state.currentEvent.currentEvent
+        currentEvent: state.currentEvent.currentEvent,
+        currentVenue: state.currentVenue.currentVenue
     }
 }
 
@@ -107,4 +92,4 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AddVenueForm));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EditVenueForm));

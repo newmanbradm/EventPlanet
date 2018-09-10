@@ -6,19 +6,19 @@ import { withRouter } from 'react-router-dom'
 const eventsUrl = "http://localhost:3000/api/v1/events"
 
 
-class AddVenueForm extends Component {
+class AddGuestForm extends Component {
 
     state = {
         name: '',
-        imageUrl: '',
-        address: ''
+        email: '',
+        phoneNumber: ''
     }
 
-    addEventVenue = (eventId, venueId) => {
-        let postUrl = "http://localhost:3000/api/v1/event_venues"
+    addEventGuest = (eventId, guestId) => {
+        let postUrl = "http://localhost:3000/api/v1/event_guests"
         let postBody = {
             event_id: eventId,
-            venue_id: venueId
+            guest_id: guestId
         }
         let postConfig = {
             method: "POST",
@@ -39,11 +39,11 @@ class AddVenueForm extends Component {
     handleSubmit = event => {
         event.preventDefault()
         const currentEventUrl = `http://localhost:3000/api/v1/events/${this.props.currentEvent.id}`
-        let postUrl = "http://localhost:3000/api/v1/venues"
+        let postUrl = "http://localhost:3000/api/v1/guests"
         let postBody = {
             name: this.state.name,
-            image_url: this.state.imageUrl,
-            address: this.state.address
+            email: this.state.email,
+            phone_number: this.state.phoneNumber
         }
         let postConfig = {
             method: "POST",
@@ -52,7 +52,7 @@ class AddVenueForm extends Component {
                 "Content-Type": "application/json"
             }
         }
-        return fetch(postUrl, postConfig).then(resp => resp.json()).then(data => data.id).then(id => this.addEventVenue(this.props.currentEvent.id, id)).then(() => fetch(currentEventUrl)).then(resp => resp.json()).then(data => this.props.setCurrentEvent(data)).then(() => fetch(eventsUrl)).then(resp => resp.json()).then(data => this.props.setEvents(data)).then(this.props.history.push("/venues"))
+        return fetch(postUrl, postConfig).then(resp => resp.json()).then(data => data.id).then(id => this.addEventGuest(this.props.currentEvent.id, id)).then(() => fetch(currentEventUrl)).then(resp => resp.json()).then(data => this.props.setCurrentEvent(data)).then(() => fetch(eventsUrl)).then(resp => resp.json()).then(data => this.props.setEvents(data)).then(this.props.history.push("/guests"))
 
     }
 
@@ -61,33 +61,33 @@ class AddVenueForm extends Component {
         return (
             this.props.currentEvent.id ?
             <div className="content">
-                <h1>Add A Venue</h1>
+                <h1>Add A Guest</h1>
                 <form className="add-event-form" onSubmit={this.handleSubmit}>
-                    <label htmlFor="name">Name of Venue: </label>
+                    <label htmlFor="name">Name: </label>
                     <br />
                     <br />
                     <input type="text" name="name" id="name" value={this.state.name} onChange={this.handleChange} />
                     <br />
                     <br />
-                    <label htmlFor="imageUrl">Image URL: </label>
+                    <label htmlFor="email">Email: </label>
                     <br />
                     <br />
-                    <input type="text" name="imageUrl" id="imageUrl" value={this.state.imageUrl} onChange={this.handleChange} />
+                    <input type="text" name="email" id="email" value={this.state.email} onChange={this.handleChange} />
                     <br />
                     <br />
-                    <label htmlFor="address">Address: </label>
+                    <label htmlFor="phoneNumber">Phone Number: </label>
                     <br />
                     <br />
-                    <input type="text" name="address" id="address" value={this.state.address} onChange={this.handleChange} />
+                    <input type="text" name="phoneNumber" id="phoneNumber" value={this.state.phoneNumber} onChange={this.handleChange} />
                     <br />
                     <br />
-                    <input type="submit" value="Add Venue"/>
+                    <input type="submit" value="Add Guest"/>
                 </form>
             </div>
             :
             <div className="content">
-                <h1>Add A Venue</h1>
-                <h3>Please select an event to add a venue.</h3>
+                <h1>Add A Guest</h1>
+                <h3>Please select an event to add a guest.</h3>
             </div>
         );
     }
@@ -107,4 +107,4 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AddVenueForm));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AddGuestForm));

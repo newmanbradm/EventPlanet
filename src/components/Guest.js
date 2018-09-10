@@ -8,9 +8,9 @@ const Guest = (props) => {
             <p>{props.guest.email}</p>
             <p>{props.guest.phone_number}</p>
             <div className="edit-and-remove-buttons">
-                <button>Edit Guest</button>
+                <button onClick={() => props.editGuest(props.guest)}>Edit Guest</button>
                 &nbsp;
-                <button>Remove Guest</button>
+                <button onClick={() => props.deleteGuest(props.guest.id)}>Remove Guest</button>
             </div>
         </div>
     );

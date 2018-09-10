@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import VenueDetails from '../components/VenueDetails';
 import { withRouter } from 'react-router-dom';
+import { setEventsAction, setCurrentEventAction, setCurrentVenueAction } from '../actions';
+
+const eventsUrl = "http://localhost:3000/api/v1/events"
 
 class VenueContainer extends Component {
 
     renderVenueDetails = () => {
         if (this.props.currentEvent.venues.length !== 0) {
-            return this.props.currentEvent.venues.map(venue => <VenueDetails key={venue.id} venue={venue}/>)
+            let sortedArray = this.props.currentEvent.venues.sort((a, b) => a.id - b.id)
+            return sortedArray.map(venue => <VenueDetails key={venue.id} venue={venue} editVenue={this.editVenue} deleteVenue={this.deleteVenue}/>)
         } else {
             return <h1>This event does not have any venues at this time.</h1>
         }
@@ -15,6 +19,18 @@ class VenueContainer extends Component {
 
     handleClick = () => {
         this.props.history.push('/add-venue')
+    }
+
+    editVenue = (venueObj) => {
+        this.props.setCurrentVenue(venueObj)
+        this.props.history.push('/edit-venue')
+    }
+
+    deleteVenue = (venueId) => {
+        const currentEventUrl = `http://localhost:3000/api/v1/events/${this.props.currentEvent.id}`
+        let eventVenueToDelete = this.props.currentEvent.event_venues.find(eventVenue => eventVenue.venue_id === venueId)
+        let deleteUrl = `http://localhost:3000/api/v1/event_venues/${eventVenueToDelete.id}`
+        return fetch(deleteUrl, {method: "DELETE"}).then(() => fetch(currentEventUrl)).then(resp => resp.json()).then(data => this.props.setCurrentEvent(data)).then(() => fetch(eventsUrl)).then(resp => resp.json()).then(data => this.props.setEvents(data))
     }
     
     render() {
@@ -35,9 +51,16 @@ class VenueContainer extends Component {
 
 function mapStateToProps(state) {
     return {
-        allEvents: state.events.allEvents,
         currentEvent: state.currentEvent.currentEvent
     }
 }
 
-export default withRouter(connect(mapStateToProps)(VenueContainer));
+function mapDispatchToProps(dispatch) {
+    return {
+        setEvents: (data) => dispatch(setEventsAction(data)),
+        setCurrentEvent: (obj) => dispatch(setCurrentEventAction(obj)),
+        setCurrentVenue: (obj) => dispatch(setCurrentVenueAction(obj))
+    }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(VenueContainer));
