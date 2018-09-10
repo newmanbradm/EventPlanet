@@ -19,6 +19,7 @@ import EditVenueForm from '../containers/forms/EditVenueForm';
 import AddGuestForm from '../containers/forms/AddGuestForm';
 import EditGuestForm from '../containers/forms/EditGuestForm';
 import AddSupplyForm from '../containers/forms/AddSupplyForm';
+import EditSupplyForm from '../containers/forms/EditSupplyForm';
 
 class App extends Component {
 
@@ -51,6 +52,7 @@ class App extends Component {
           <Route exact path='/add-guest' component={AddGuestForm} />
           <Route exact path='/edit-guest' component={EditGuestForm} />
           <Route exact path='/add-supply' component={AddSupplyForm} />
+          <Route exact path='/edit-supply' component={EditSupplyForm} />
         </Switch>
       </div>
     );

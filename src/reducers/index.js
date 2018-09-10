@@ -4,6 +4,7 @@ import eventReducer from "./eventReducer";
 import usersReducer from './usersReducer'
 import venueReducer from "./venueReducer";
 import guestReducer from "./guestReducer";
+import supplyReducer from "./supplyReducer";
 
 
 const rootReducer = combineReducers({
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
     currentEvent: eventReducer,
     currentVenue: venueReducer,
     currentGuest: guestReducer,
+    currentSupply: supplyReducer,
     users: usersReducer
 })
 

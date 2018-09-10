@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Supply from '../components/Supply';
 import { withRouter } from 'react-router-dom';
+import { setEventsAction, setCurrentEventAction, setCurrentSupplyAction } from '../actions';
+
+const eventsUrl = "http://localhost:3000/api/v1/events"
 
 class SupplyList extends Component {
 
@@ -27,11 +30,14 @@ class SupplyList extends Component {
     }
 
     editSupply = (supplyObj) => {
-
+        this.props.setCurrentSupply(supplyObj)
+        this.props.history.push('/edit-supply')
     }
 
     deleteSupply = (supplyId) => {
-
+        const currentEventUrl = `http://localhost:3000/api/v1/events/${this.props.currentEvent.id}`
+        let deleteUrl = `http://localhost:3000/api/v1/supplies/${supplyId}`
+        return fetch(deleteUrl, {method: "DELETE"}).then(() => fetch(currentEventUrl)).then(resp => resp.json()).then(data => this.props.setCurrentEvent(data)).then(() => fetch(eventsUrl)).then(resp => resp.json()).then(data => this.props.setEvents(data))
     }
     
     render() {
@@ -62,4 +68,12 @@ function mapStateToProps(state) {
     }
 }
 
-export default withRouter(connect(mapStateToProps)(SupplyList));
+function mapDispatchToProps(dispatch) {
+    return {
+        setEvents: (data) => dispatch(setEventsAction(data)),
+        setCurrentEvent: (obj) => dispatch(setCurrentEventAction(obj)),
+        setCurrentSupply: (obj) => dispatch(setCurrentSupplyAction(obj))
+    }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SupplyList));
