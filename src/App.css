@@ -100,14 +100,8 @@
   align-items: center;
 }
 
-.post-area {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
 .post {
+  margin-top: 5%;
   border: 2px solid #9c0e2f;
   border-radius: 8px;
   padding: 10px;

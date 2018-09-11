@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Comment = (props) => {
+class Comment extends Component {
 
-    return (
-        <div className='comment'>
-            <p>{props.comment.message}</p>
-            &nbsp;
-            <button>Edit</button>
-            &nbsp;
-            <button>Remove</button>
-        </div>
-    );
+    render() {
+        return (
+            <div className='comment'>
+                <p>{this.props.comment.message}</p>
+                &nbsp;
+                <button onClick={() => this.props.editComment(this.props.comment)}>Edit</button>
+                &nbsp;
+                <button onClick={() => this.props.deleteComment(this.props.comment.id)}>Remove</button>
+            </div>
+        );
+    }
 }
 
 export default Comment;
