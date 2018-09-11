@@ -81,8 +81,8 @@ class EditSupplyForm extends Component {
 function mapStateToProps(state) {
     return {
         allEvents: state.events.allEvents,
-        currentEvent: state.currentEvent.currentEvent,
-        currentSupply: state.currentSupply.currentSupply
+        currentEvent: state.event.currentEvent,
+        currentSupply: state.supply.currentSupply
     }
 }
 

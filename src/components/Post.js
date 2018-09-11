@@ -20,7 +20,9 @@ class Post extends Component {
                 <div className="post">
                     <img src={this.props.post.image_url} alt="post"/>
                     {this.renderComments()}
-                    <button>Remove Post</button>
+                    <button>Write Comment</button>
+                    &nbsp;
+                    <button onClick={() => this.props.deletePost(this.props.post.id)}>Remove Post</button>
                 </div>
             </div>
             <br />
@@ -31,7 +33,7 @@ class Post extends Component {
 
 function mapStateToProps(state) {
     return {
-        currentEvent: state.currentEvent.currentEvent
+        currentEvent: state.event.currentEvent
     }
 }
 

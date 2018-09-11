@@ -23,7 +23,7 @@ class EventTab extends Component {
 
 function mapStateToProps(state) {
     return {
-        currentEvent: state.currentEvent.currentEvent
+        currentEvent: state.event.currentEvent
     }
 }
 

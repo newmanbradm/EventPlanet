@@ -80,8 +80,8 @@ class EditVenueForm extends Component {
 function mapStateToProps(state) {
     return {
         allEvents: state.events.allEvents,
-        currentEvent: state.currentEvent.currentEvent,
-        currentVenue: state.currentVenue.currentVenue
+        currentEvent: state.event.currentEvent,
+        currentVenue: state.venue.currentVenue
     }
 }
 

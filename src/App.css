@@ -36,6 +36,10 @@
   position: absolute;
   display: flex;
   flex-direction: column;
+  border-right: solid;
+  border-bottom: solid;
+  border-right-color: #dfc183;
+  border-bottom-color: #dfc183;
 }
 
 .navbar {

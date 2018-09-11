@@ -80,8 +80,8 @@ class EditGuestForm extends Component {
 function mapStateToProps(state) {
     return {
         allEvents: state.events.allEvents,
-        currentEvent: state.currentEvent.currentEvent,
-        currentGuest: state.currentGuest.currentGuest
+        currentEvent: state.event.currentEvent,
+        currentGuest: state.guest.currentGuest
     }
 }
 

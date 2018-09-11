@@ -1,4 +1,4 @@
-import {SET_EVENTS, SET_CURRENT_EVENT, SET_USERS, SET_CURRENT_VENUE, SET_CURRENT_GUEST, SET_CURRENT_SUPPLY} from './types'
+import {SET_EVENTS, SET_CURRENT_EVENT, SET_USERS, SET_CURRENT_VENUE, SET_CURRENT_GUEST, SET_CURRENT_SUPPLY, SET_CURRENT_POST, SET_CURRENT_COMMENT} from './types'
 
 export const setUsersAction = data => ({
     type: SET_USERS,
@@ -28,4 +28,14 @@ export const setCurrentGuestAction = guestObj => ({
 export const setCurrentSupplyAction = supplyObj => ({
     type: SET_CURRENT_SUPPLY,
     payload: supplyObj
+})
+
+export const setCurrentPostAction = postObj => ({
+    type: SET_CURRENT_POST,
+    payload: postObj
+})
+
+export const setCurrentCommentAction = commentObj => ({
+    type: SET_CURRENT_COMMENT,
+    payload: commentObj
 })

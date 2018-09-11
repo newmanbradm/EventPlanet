@@ -81,7 +81,7 @@ class AddSupplyForm extends Component {
 function mapStateToProps(state) {
     return {
         allEvents: state.events.allEvents,
-        currentEvent: state.currentEvent.currentEvent
+        currentEvent: state.event.currentEvent
     }
 }
 
