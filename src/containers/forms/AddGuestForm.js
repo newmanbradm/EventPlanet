@@ -56,6 +56,10 @@ class AddGuestForm extends Component {
 
     }
 
+    handleCancel = () => {
+        this.props.history.push("/guests")
+    }
+
     render() {
         
         return (
@@ -82,6 +86,8 @@ class AddGuestForm extends Component {
                     <br />
                     <br />
                     <input type="submit" value="Add Guest"/>
+                    &nbsp;
+                    <button onClick={this.handleCancel}>Cancel</button>
                 </form>
             </div>
             :

@@ -123,4 +123,19 @@
   border-bottom: 1px solid;
 }
 
+.venue-area {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.venue {
+  margin-top: 5%;
+  border: 2px solid #9c0e2f;
+  border-radius: 8px;
+  padding: 10px;
+}
+
 

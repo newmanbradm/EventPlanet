@@ -18,6 +18,10 @@ class EditCommentForm extends Component {
         })
     }
 
+    handleCancel = () => {
+        this.props.history.push("/inspiration")
+    }
+
     handleSubmit = event => {
         event.preventDefault()
         const editUrl = `http://localhost:3000/api/v1/comments/${this.props.currentComment.id}`
@@ -50,6 +54,8 @@ class EditCommentForm extends Component {
                     <br />
                     <br />
                     <input type="submit" value="Edit Comment"/>
+                    &nbsp;
+                    <button onClick={this.handleCancel}>Cancel</button>
                 </form>
             </div>
             :

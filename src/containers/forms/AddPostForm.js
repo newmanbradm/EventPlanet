@@ -34,7 +34,10 @@ class AddPostForm extends Component {
             }
         }
         return fetch(postUrl, postConfig).then(resp => resp.json()).then(() => fetch(currentEventUrl)).then(resp => resp.json()).then(data => this.props.setCurrentEvent(data)).then(() => fetch(eventsUrl)).then(resp => resp.json()).then(data => this.props.setEvents(data)).then(this.props.history.push("/inspiration"))
+    }
 
+    handleCancel = () => {
+        this.props.history.push("/inspiration")
     }
 
     render() {
@@ -51,6 +54,8 @@ class AddPostForm extends Component {
                     <br />
                     <br />
                     <input type="submit" value="Add Post"/>
+                    &nbsp;
+                    <button onClick={this.handleCancel}>Cancel</button>
                 </form>
             </div>
             :

@@ -41,6 +41,10 @@ class EditSupplyForm extends Component {
 
     }
 
+    handleCancel = () => {
+        this.props.history.push("/supplies")
+    }
+
     render() {
         
         return (
@@ -67,6 +71,8 @@ class EditSupplyForm extends Component {
                     <br />
                     <br />
                     <input type="submit" value="Edit Supply"/>
+                    &nbsp;
+                    <button onClick={this.handleCancel}>Cancel</button>
                 </form>
             </div>
             :

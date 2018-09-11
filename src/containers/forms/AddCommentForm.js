@@ -17,6 +17,10 @@ class AddCommentForm extends Component {
         })
     }
 
+    handleCancel = () => {
+        this.props.history.push("/inspiration")
+    }
+
     handleSubmit = event => {
         event.preventDefault()
         const currentEventUrl = `http://localhost:3000/api/v1/events/${this.props.currentEvent.id}`
@@ -49,6 +53,8 @@ class AddCommentForm extends Component {
                     <br />
                     <br />
                     <input type="submit" value="Add Comment"/>
+                    &nbsp;
+                    <button onClick={this.handleCancel}>Cancel</button>
                 </form>
             </div>
             :

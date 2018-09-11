@@ -42,6 +42,10 @@ class EditEventForm extends Component {
         return fetch(editUrl, editConfig).then(resp => resp.json()).then(data => this.props.setCurrentEvent(data)).then(() => fetch(eventsUrl).then(resp => resp.json()).then(data => this.props.setEvents(data)).then(this.props.history.push("/details"))) 
     }
 
+    handleCancel = () => {
+        this.props.history.push("/")
+    }
+
     render() {
         return (
             <div className="content">
@@ -85,6 +89,8 @@ class EditEventForm extends Component {
                     <br />
                     <br />
                     <input type="submit" value="Edit Event"/>
+                    &nbsp;
+                    <button onClick={this.handleCancel}>Cancel</button>
                 </form>
             </div>
         );

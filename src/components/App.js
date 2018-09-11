@@ -42,7 +42,7 @@ class App extends Component {
         <EventList />
         <Navbar />
         <Switch className='content'>
-          <Route exact path='/' component={LoginForm} />
+          <Route exact path='/' component={DetailsContainer} />
           <Route path='/details' component={DetailsContainer} />
           <Route path='/venues' component={VenueContainer} />
           <Route path='/guests' component={GuestList} />

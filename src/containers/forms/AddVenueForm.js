@@ -56,6 +56,10 @@ class AddVenueForm extends Component {
 
     }
 
+    handleCancel = () => {
+        this.props.history.push("/venues")
+    }
+
     render() {
         
         return (
@@ -82,6 +86,8 @@ class AddVenueForm extends Component {
                     <br />
                     <br />
                     <input type="submit" value="Add Venue"/>
+                    &nbsp;
+                    <button onClick={this.handleCancel}>Cancel</button>
                 </form>
             </div>
             :

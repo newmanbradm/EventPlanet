@@ -40,6 +40,10 @@ class EditGuestForm extends Component {
 
     }
 
+    handleCancel = () => {
+        this.props.history.push("/guests")
+    }
+
     render() {
         
         return (
@@ -66,6 +70,8 @@ class EditGuestForm extends Component {
                     <br />
                     <br />
                     <input type="submit" value="Edit Guest"/>
+                    &nbsp;
+                    <button onClick={this.handleCancel}>Cancel</button>
                 </form>
             </div>
             :

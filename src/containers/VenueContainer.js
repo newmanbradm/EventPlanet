@@ -39,7 +39,9 @@ class VenueContainer extends Component {
             <div className="content">
                 <h1>{`Venue(s) for ${this.props.currentEvent.title}`}</h1>
                 <button onClick={this.handleClick}>Add Venue</button>
+                <div className="venue-area">
                 {this.renderVenueDetails()}
+                </div>
             </div>
             :
             <div className="content">

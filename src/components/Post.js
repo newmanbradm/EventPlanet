@@ -35,7 +35,6 @@ class Post extends Component {
 
     render() {
         return (
-            <React.Fragment>
             <div className='post-area'>
                 <div className="post">
                     <img src={this.props.post.image_url} alt="post"/>
@@ -44,9 +43,8 @@ class Post extends Component {
                     &nbsp;
                     <button onClick={() => this.props.deletePost(this.props.post.id)}>Remove Post</button>
                 </div>
+                <br />
             </div>
-            <br />
-            </React.Fragment>
         );
     }
 }
