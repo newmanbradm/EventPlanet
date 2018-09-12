@@ -40,6 +40,7 @@ class GuestList extends Component {
                 <h1>{`Guests for ${this.props.currentEvent.title}`}</h1>
                 <button onClick={this.handleClick}>Add Guest</button>
                 <br />
+                <br />
                 {this.renderGuests()}
             </div>
             :

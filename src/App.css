@@ -166,3 +166,8 @@ a {
   font-size: 150%;
 }
 
+.store-url {
+  text-decoration-line: underline;
+  font-size: 100%;
+}
+

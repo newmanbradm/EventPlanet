@@ -11,7 +11,8 @@ class EventList extends Component {
     }
 
     renderEventTabs = () => {
-        return this.props.allEvents.map(event => <EventTab key={event.id} event={event} />)
+        let sortedArray = this.props.allEvents.sort((a, b) => a.id - b.id)
+        return sortedArray.map(event => <EventTab key={event.id} event={event} />)
     }
 
     handleClick = () => {

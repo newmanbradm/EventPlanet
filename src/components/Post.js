@@ -33,11 +33,19 @@ class Post extends Component {
         return fetch(deleteUrl, {method: "DELETE"}).then(() => fetch(currentEventUrl)).then(resp => resp.json()).then(data => this.props.setCurrentEvent(data)).then(() => fetch(eventsUrl)).then(resp => resp.json()).then(data => this.props.setEvents(data))
     }
 
+    displayImage = () => {
+        if (this.props.post.image_url.length !== 0) {
+            return <img className="uploaded-image" src={this.props.post.image_url} alt="post"/>
+        } else {
+            return <img className="uploaded-image" src="https://vignette.wikia.nocookie.net/sorenova/images/2/22/Your_photo_here-3787d738d74295a33f783015c625c5ae.png/revision/latest?cb=20170630201907" alt="post"/>
+        }
+    }
+
     render() {
         return (
             <div className='post-area'>
                 <div className="post">
-                    <img className="uploaded-image" src={this.props.post.image_url} alt="post"/>
+                    {this.displayImage()}
                     {this.renderComments()}
                     <button onClick={() => this.handleClick(this.props.post)}>Write Comment</button>
                     &nbsp;

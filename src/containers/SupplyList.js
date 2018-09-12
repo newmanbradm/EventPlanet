@@ -19,7 +19,8 @@ class SupplyList extends Component {
 
     findTotal = () => {
         if (this.props.currentEvent.supplies.length !== 0) {
-            return this.props.currentEvent.supplies.map(supply => supply.price).reduce((total, num) => total + num).toFixed(2)
+            let roundedArray = this.props.currentEvent.supplies.map(supply => parseFloat(supply.price.toFixed(2)))
+            return roundedArray.reduce((total, num) => total + num)
         } else {
             return 0
         }
@@ -47,12 +48,13 @@ class SupplyList extends Component {
                 <h1>{`Supplies for ${this.props.currentEvent.title}`}</h1>
                 <button onClick={this.handleClick}>Add Supply</button>
                 <br />
+                <br />
                 {this.renderSupplies()}
                 <div className="budget">
-                    <h4>Event Budget: {`$${this.props.currentEvent.budget}`}</h4>
+                    <h4>Event Budget: {`$${this.props.currentEvent.budget.toFixed(2)}`}</h4>
                     <h4>Total of Supplies: {`$${this.findTotal()}`}</h4>
                     <h4> Remaining: {
-                        `$${(this.props.currentEvent.budget - this.findTotal()).toFixed(2)}`
+                        `$${(this.props.currentEvent.budget.toFixed(2) - this.findTotal()).toFixed(2)}`
                     } </h4>
                 </div>
             </div>
