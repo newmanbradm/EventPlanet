@@ -53,7 +53,7 @@ class EditCommentForm extends Component {
                     <textarea type="text" name="message" id="message" value={this.state.message} onChange={this.handleChange}/>
                     <br />
                     <br />
-                    <input type="submit" value="Edit Comment"/>
+                    <button type="submit" value="Edit Comment">Edit Comment</button>
                     &nbsp;
                     <button onClick={this.handleCancel}>Cancel</button>
                 </form>

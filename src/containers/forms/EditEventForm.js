@@ -88,7 +88,7 @@ class EditEventForm extends Component {
                     <input type="number" name="budget" id="budget" value={this.state.budget} onChange={this.handleChange} />
                     <br />
                     <br />
-                    <input type="submit" value="Edit Event"/>
+                    <button type="submit" value="Edit Event">Edit Event</button>
                     &nbsp;
                     <button onClick={this.handleCancel}>Cancel</button>
                 </form>

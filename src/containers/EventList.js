@@ -23,7 +23,7 @@ class EventList extends Component {
         return (
             <div className="event-list">
                 <div className="create-event" onClick={this.handleClick}>
-                    <h4>Add Event +</h4>
+                    <h3>Add Event +</h3>
                     <hr />
                     <hr />
                 </div>

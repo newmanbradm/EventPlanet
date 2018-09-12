@@ -69,7 +69,7 @@ class EditGuestForm extends Component {
                     <input type="text" name="phoneNumber" id="phoneNumber" value={this.state.phoneNumber} onChange={this.handleChange} />
                     <br />
                     <br />
-                    <input type="submit" value="Edit Guest"/>
+                    <button type="submit" value="Edit Guest">Edit Guest</button>
                     &nbsp;
                     <button onClick={this.handleCancel}>Cancel</button>
                 </form>

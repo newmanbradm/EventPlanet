@@ -70,7 +70,7 @@ class AddSupplyForm extends Component {
                     <input type="text" name="storeUrl" id="storeUrl" value={this.state.storeUrl} onChange={this.handleChange} />
                     <br />
                     <br />
-                    <input type="submit" value="Add Supply"/>
+                    <button type="submit" value="Add Supply">Add Supply</button>
                     &nbsp;
                     <button onClick={this.handleCancel}>Cancel</button>
                 </form>

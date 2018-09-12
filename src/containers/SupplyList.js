@@ -51,12 +51,14 @@ class SupplyList extends Component {
                 <div className="budget">
                     <h4>Event Budget: {`$${this.props.currentEvent.budget}`}</h4>
                     <h4>Total of Supplies: {`$${this.findTotal()}`}</h4>
-                    <h4>Remaining: {`$${this.props.currentEvent.budget - this.findTotal()}`}</h4>
+                    <h4> Remaining: {
+                        `$${(this.props.currentEvent.budget - this.findTotal()).toFixed(2)}`
+                    } </h4>
                 </div>
             </div>
             :
             <div className="content">
-                <h1>Please Select An Event</h1>
+                <h1>Please Select Or Add An Event</h1>
             </div>
         );
     }

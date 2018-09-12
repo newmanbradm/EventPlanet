@@ -69,7 +69,7 @@ class EditVenueForm extends Component {
                     <input type="text" name="address" id="address" value={this.state.address} onChange={this.handleChange} />
                     <br />
                     <br />
-                    <input type="submit" value="Edit Venue"/>
+                    <button type="submit" value="Edit Venue">Edit Venue</button>
                     &nbsp;
                     <button onClick={this.handleCancel}>Cancel</button>
                 </form>

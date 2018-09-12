@@ -85,7 +85,7 @@ class AddGuestForm extends Component {
                     <input type="text" name="phoneNumber" id="phoneNumber" value={this.state.phoneNumber} onChange={this.handleChange} />
                     <br />
                     <br />
-                    <input type="submit" value="Add Guest"/>
+                    <button type="submit" value="Add Guest">Add Guest</button>
                     &nbsp;
                     <button onClick={this.handleCancel}>Cancel</button>
                 </form>

@@ -9,13 +9,13 @@ class EventTab extends Component {
         return (
             this.props.currentEvent.id !== this.props.event.id ?
             <div className="event-tab" onClick={() => this.props.setCurrentEvent(this.props.event)}>
-            <h5>{this.props.event.title}</h5>
-            <h6>{this.props.event.date}</h6>
+            <h4>{this.props.event.title}</h4>
+            <h5>{this.props.event.date}</h5>
             </div>
             :
             <div className="selected-event-tab" onClick={() => this.props.setCurrentEvent(this.props.event)}>
-            <h5>{this.props.event.title}</h5>
-            <h6>{this.props.event.date}</h6>
+            <h4>{this.props.event.title}</h4>
+            <h5>{this.props.event.date}</h5>
             </div>
         );
     }

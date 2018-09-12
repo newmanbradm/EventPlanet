@@ -53,7 +53,7 @@ class AddPostForm extends Component {
                     <input type="text" name="imageUrl" id="imageUrl" value={this.state.imageUrl} onChange={this.handleChange} />
                     <br />
                     <br />
-                    <input type="submit" value="Add Post"/>
+                    <button type="submit" value="Add Post">Add Post</button>
                     &nbsp;
                     <button onClick={this.handleCancel}>Cancel</button>
                 </form>

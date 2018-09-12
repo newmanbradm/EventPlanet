@@ -89,7 +89,7 @@ class AddEventForm extends Component {
                     <input type="number" name="budget" id="budget" value={this.state.budget} onChange={this.handleChange} />
                     <br />
                     <br />
-                    <input type="submit" value="Add Event"/>
+                    <button type="submit" value="Add Event">Add Event</button>
                     &nbsp;
                     <button onClick={this.handleCancel}>Cancel</button>
                 </form>

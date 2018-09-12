@@ -85,7 +85,7 @@ class AddVenueForm extends Component {
                     <input type="text" name="address" id="address" value={this.state.address} onChange={this.handleChange} />
                     <br />
                     <br />
-                    <input type="submit" value="Add Venue"/>
+                    <button type="submit" value="Add Venue">Add Venue</button>
                     &nbsp;
                     <button onClick={this.handleCancel}>Cancel</button>
                 </form>

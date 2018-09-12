@@ -3,16 +3,16 @@ import React from 'react';
 const EventDetails = (props) => {
 
     return (
-        props.event.id ?
         <div>
             <h1>{props.event.title}</h1>
-            <h3>Date</h3>
+            <br />
+            <h2>Date</h2>
             {props.event.date}
-            <h3>Rain Date</h3>
+            <h2>Rain Date</h2>
             {props.event.rain_date}
-            <h3>Description</h3>
+            <h2>Description</h2>
             {props.event.description}
-            <h3>Contact</h3>
+            <h2>Contact</h2>
             {props.event.contact_details}
             <br />
             <br />
@@ -22,10 +22,6 @@ const EventDetails = (props) => {
                 &nbsp;
                 <button onClick={props.deleteEvent}>Delete Event</button>
             </div>
-        </div>
-        :
-        <div>
-            <h1>Please Select An Event</h1>
         </div>
     );
 }

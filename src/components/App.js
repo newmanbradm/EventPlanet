@@ -3,7 +3,6 @@ import '../App.css';
 import { Route, Switch } from 'react-router-dom';
 import EventList from '../containers/EventList';
 import Navbar from '../containers/Navbar'
-import LoginForm from '../containers/forms/LoginForm';
 import DetailsContainer from '../containers/DetailsContainer';
 import VenueContainer from '../containers/VenueContainer';
 import GuestList from '../containers/GuestList';

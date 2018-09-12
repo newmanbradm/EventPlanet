@@ -40,7 +40,7 @@ class PostList extends Component {
             </div>
             :
             <div className="content">
-                <h1>Please Select An Event</h1>
+                <h1>Please Select Or Add An Event</h1>
             </div>
         );
     }

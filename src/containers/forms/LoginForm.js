@@ -31,7 +31,7 @@ class LoginForm extends Component {
                     <input type="password" name="password" id="password" autoComplete="password" value={this.state.password} onChange={this.onChange} />
                     <br />
                     <br />
-                    <input type="submit" value="Login"/>
+                    <button type="submit" value="Login">Login</button>
                 </form>
             </div>
         );

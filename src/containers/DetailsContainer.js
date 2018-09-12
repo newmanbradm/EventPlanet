@@ -23,8 +23,13 @@ class DetailsContainer extends Component {
 
     render() {
         return (
+            this.props.currentEvent.id ?
             <div className="content">
                 <EventDetails event={this.props.currentEvent} editEvent={this.editEvent} deleteEvent={this.deleteEvent} />
+            </div>
+            :
+            <div className="content">
+                <h1>Please Select Or Add An Event</h1>
             </div>
         );
     }
