@@ -101,7 +101,7 @@
 }
 
 .post {
-  margin-top: 5%;
+  margin-top: 1%;
   border: 2px solid #9c0e2f;
   border-radius: 8px;
   padding: 10px;
@@ -132,7 +132,7 @@
 }
 
 .venue {
-  margin-top: 5%;
+  margin-top: 1%;
   border: 2px solid #9c0e2f;
   border-radius: 8px;
   padding: 10px;
@@ -151,6 +151,13 @@ input {
 textarea {
   font-family: 'Pangolin', cursive;
   font-size: 14px;
+}
+
+.uploaded-image {
+  height: 100%;
+  max-height: 400px;
+  width: 100%;
+  max-width:400px;
 }
 
 a {

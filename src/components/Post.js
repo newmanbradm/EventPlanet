@@ -37,7 +37,7 @@ class Post extends Component {
         return (
             <div className='post-area'>
                 <div className="post">
-                    <img src={this.props.post.image_url} alt="post"/>
+                    <img className="uploaded-image" src={this.props.post.image_url} alt="post"/>
                     {this.renderComments()}
                     <button onClick={() => this.handleClick(this.props.post)}>Write Comment</button>
                     &nbsp;
