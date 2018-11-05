@@ -36,7 +36,7 @@ class App extends Component {
           <br />
           <img src="planet.png" className="App-logo" alt="logo" />
           <h1 className="App-title">EventPlanet</h1>
-          <h4>Just Plan It!</h4>
+          <h3>Just Plan It!</h3>
         </header>
         <EventList />
         <Navbar />

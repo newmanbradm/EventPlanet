@@ -85,7 +85,7 @@ class EditEventForm extends Component {
                     <label htmlFor="budget">Event Budget: </label>
                     <br />
                     <br />
-                    <input type="number" name="budget" id="budget" value={this.state.budget} onChange={this.handleChange} />
+                    $<input type="number" name="budget" id="budget" value={this.state.budget} onChange={this.handleChange} />
                     <br />
                     <br />
                     <button type="submit" value="Edit Event">Edit Event</button>

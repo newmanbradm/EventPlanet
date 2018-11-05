@@ -61,7 +61,7 @@ class AddSupplyForm extends Component {
                     <label htmlFor="price">Price: </label>
                     <br />
                     <br />
-                    <input type="number" name="price" id="price" value={this.state.price} onChange={this.handleChange} />
+                    $<input type="number" name="price" id="price" value={this.state.price} onChange={this.handleChange} />
                     <br />
                     <br />
                     <label htmlFor="storeUrl">Store URL: </label>

@@ -30,7 +30,7 @@
 .event-list {
   height: 100%;
   width: 20%;
-  background: #f5f7f9;
+  background: #dfdfdf;
   overflow: scroll;
   float: left;
   position: absolute;
@@ -46,7 +46,7 @@
   float: right;
   width: 80%;
   height: 50px;
-  background: #f5f7f9;
+  background: #dfdfdf;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -54,6 +54,7 @@
 }
 
 .content {
+  background: #efefef;
   float: right;
   right: 0px;
   width: 80%;
