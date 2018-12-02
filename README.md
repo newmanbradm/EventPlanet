@@ -1,7 +1,7 @@
 # EventPlanet
 > A single-page "one-stop-shop" application that allows events coordinators to quickly and easily organize and track all of their events!
 
-Created with a Ruby on Rails API backend and a Javascript frontend, EventPlanet is an event coordinator's dream application, serivng as a "one-stop-shop" organizer for events of all styles and sizes. Input and update of your events' details, upload photos and information for your venues, keep track of guest or volunteer contact information, and monitor purchased supplies and remaining budgets. You can even start a unique inspiration board for each event! Start planning your events with EventPlanet and you'll wonder how you ever coordinated events without it!
+Created with a Ruby on Rails API backend and a React frontend, EventPlanet is an event coordinator's dream application, serivng as a "one-stop-shop" organizer for events of all styles and sizes. Input and update of your events' details, upload photos and information for your venues, keep track of guest or volunteer contact information, and monitor purchased supplies and remaining budgets. You can even start a unique inspiration board for each event! Start planning your events with EventPlanet and you'll wonder how you ever coordinated events without it!
 
 Ruby on Rails API backend repo available here: https://github.com/newmanbradm/EventPlanet_API
 
@@ -25,27 +25,55 @@ bundle install
 
 ## Usage example
 
-Before playing, you must enter a username:
+Review and update your events' details:
 
 <p align="center">
-  <img src="https://media.giphy.com/media/25OBHoAMQNkJLjcKjw/giphy.gif">
+  <img src="http://g.recordit.co/kuXr1br4UE.gif">
 </p>
 
 
-Then, play to your heart's content until you reach the leaderboard.
+Review and update your events' venues:
 
 <p align="center">
-  <img src="https://media.giphy.com/media/cJz04ccqHzOdrftvI9/giphy.gif">
+  <img src="http://g.recordit.co/PDqi2FkQPi.gif">
+</p>
+
+
+Review and update your events' guests or volunteers:
+
+<p align="center">
+  <img src="http://g.recordit.co/wLe9qadVRV.gif">
+</p>
+
+
+Review and update your events' supplies (and view your remaining budget):
+
+<p align="center">
+  <img src="http://g.recordit.co/LHRs1hWI3r.gif">
+</p>
+
+
+Review and update your events' inspiration board:
+
+<p align="center">
+  <img src="http://g.recordit.co/7qXxbickTm.gif">
+</p>
+
+
+To get started, add and event!
+
+<p align="center">
+  <img src="http://g.recordit.co/2KDH2uxssZ.gif">
 </p>
 
 
 ## Development setup
 
-front end (will auto run on port :3001):
+frontend (will auto run on port :3001):
 ```sh
 npm start
 ```
-back end (will auto run on port :3000):
+backend (will auto run on port :3000):
 ```sh
 rails db:create
 rails db:migrate
