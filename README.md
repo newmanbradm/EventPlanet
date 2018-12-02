@@ -56,7 +56,7 @@ Review and update your events' supplies (and view your remaining budget):
 Review and update your events' inspiration board:
 
 <p align="center">
-  <img src="http://recordit.co/7qXxbickTm">
+  <img src="http://g.recordit.co/0nnCFITg8h.gif">
 </p>
 
 
