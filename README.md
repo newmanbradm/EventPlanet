@@ -6,7 +6,7 @@ Created with a Ruby on Rails API backend and a Javascript frontend, EventPlanet 
 Ruby on Rails API backend repo available here: https://github.com/newmanbradm/EventPlanet_API
 
 <p align="center">
-  <img src="https://media.giphy.com/media/ero9mTlPmiByTxodsQ/giphy.gif">
+  <img src="http://g.recordit.co/XfTgUfCLrP.gif">
 </p>
 
 ## Installation
