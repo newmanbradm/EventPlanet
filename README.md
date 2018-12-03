@@ -6,7 +6,7 @@ Created with a Ruby on Rails API backend and a React frontend, EventPlanet is an
 Ruby on Rails API backend repo available here: https://github.com/newmanbradm/EventPlanet_API
 
 <p align="center">
-  <img src="http://g.recordit.co/XfTgUfCLrP.gif">
+  <img src="http://g.recordit.co/XfTgUfCLrP.gif" alt="EventPlanet landing page">
 </p>
 
 ## Installation
@@ -28,42 +28,42 @@ bundle install
 Review and update your events' details:
 
 <p align="center">
-  <img src="http://g.recordit.co/kuXr1br4UE.gif">
+  <img src="http://g.recordit.co/kuXr1br4UE.gif" alt="EventPlanet details page">
 </p>
 
 
 Review and update your events' venues:
 
 <p align="center">
-  <img src="http://g.recordit.co/PDqi2FkQPi.gif">
+  <img src="http://g.recordit.co/PDqi2FkQPi.gif" alt="EventPlanet venues page">
 </p>
 
 
 Review and update your events' guests or volunteers:
 
 <p align="center">
-  <img src="http://g.recordit.co/wLe9qadVRV.gif">
+  <img src="http://g.recordit.co/wLe9qadVRV.gif" alt="EventPlanet guests or volunteers page">
 </p>
 
 
 Review and update your events' supplies (and view your remaining budget):
 
 <p align="center">
-  <img src="http://g.recordit.co/LHRs1hWI3r.gif">
+  <img src="http://g.recordit.co/LHRs1hWI3r.gif" alt="EventPlanet supplies page">
 </p>
 
 
 Review and update your events' inspiration board:
 
 <p align="center">
-  <img src="http://g.recordit.co/0nnCFITg8h.gif">
+  <img src="http://g.recordit.co/0nnCFITg8h.gif" alt="EventPlanet inspiration page">
 </p>
 
 
 To get started, add and event!
 
 <p align="center">
-  <img src="http://g.recordit.co/2KDH2uxssZ.gif">
+  <img src="http://g.recordit.co/2KDH2uxssZ.gif" alt="EventPlanet new event page">
 </p>
 
 
