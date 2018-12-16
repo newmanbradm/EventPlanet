@@ -25,7 +25,7 @@ bundle install
 
 ## Usage example
 
-Review and update your events' details:
+Review and update your events' details, including the title, date, description, budget, etc.:
 
 <p align="center">
   <img src="http://g.recordit.co/kuXr1br4UE.gif" alt="EventPlanet details page">
