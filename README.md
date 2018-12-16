@@ -60,7 +60,7 @@ Review and update your events' inspiration board:
 </p>
 
 
-To get started, add and event!
+To get started, add an event!
 
 <p align="center">
   <img src="http://g.recordit.co/2KDH2uxssZ.gif" alt="EventPlanet new event page">
