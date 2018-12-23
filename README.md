@@ -23,7 +23,7 @@ back end:
 bundle install
 ```
 
-## Usage example
+## Usage Example
 
 Review and update your events' details, including the title, date, description, budget, etc.:
 
@@ -67,7 +67,7 @@ To get started, add an event!
 </p>
 
 
-## Development setup
+## Development Setup
 
 frontend (will auto run on port :3001):
 ```sh
